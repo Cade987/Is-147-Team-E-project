@@ -1,4 +1,4 @@
-Team-E-project Jhonathan Dacruz Evora - main Coder 
+Team-E-project Jonathan Dacruz Evora - main Coder 
 Leeroy Mbugua Project manager
 Joshua Mccourt Q/A tester
 Cade wright Program desginer

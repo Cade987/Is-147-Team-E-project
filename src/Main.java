@@ -1,12 +1,19 @@
 package src;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args){
-        UserAccount userAccount = new UserAccount();
+        // Setup scanner
+        Scanner scanner  = new Scanner(System.in);
 
-        userAccount.setName("Pizza");
+        // Create objects
+        UserAccount jimmyAccount = new UserAccount();
 
-        System.out.println(userAccount.getName());
+        // Setup default user - Jimmy
+        jimmyAccount.setDefaultAccount();
+
+        Menu.displayMenu(scanner, jimmyAccount);
 
     }
 }

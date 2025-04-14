@@ -3,7 +3,7 @@ package src;
 public class UserAccount {
 
     // Inputted properties
-    private String Name;
+    private String name;
     private String userName;
     private int age;
     private String password;
@@ -17,7 +17,7 @@ public class UserAccount {
 
     // Setters
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public void setUserName(String userName) {
@@ -54,7 +54,7 @@ public class UserAccount {
 
     // Getters
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getUserName() {
@@ -87,5 +87,20 @@ public class UserAccount {
 
     public int getSalary() {
         return salary;
+    }
+
+
+    // Setup default user account
+    public void setDefaultAccount(){
+        setName("Jim Beatly");
+        setUserName("jimmybeatly99");
+        setAge(26);
+        setPassword("jiMbE4*n");
+        setGender('M');
+        setWorkerHours(40);
+
+        setId(12345);
+        setWorkerType('F');
+        setSalary(15);
     }
 }

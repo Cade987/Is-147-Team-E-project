@@ -3,7 +3,7 @@ Leeroy Mbugua Project manager
 Joshua Mccourt Q/A tester
 Cade wright Program desginer
 
-our projecy is a POS sytem
+Our project is a POS sytem
 A Point of Sale (POS) system streamlines the transaction process by allowing retail 
 employees to quickly and accurately scan items, ensuring they are sold at the correct 
 price without relying on memory or manual price lookups. This technology eliminates 

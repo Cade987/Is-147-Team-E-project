@@ -8,17 +8,17 @@ public class GenerateUserProperties {
         return random.nextInt(1000, 10000);
     }
 
-    public static String generateWorkerType(UserAccount userAccount) {
-        if (userAccount.getWorkerHours() > 40) {
-            return "Full-Time";
+    public static char generateWorkerType(int workerHours) {
+        if (workerHours > 40) {
+            return 'F';
         }
 
         else {
-            return "Part-Time";
+            return 'P';
         }
     }
 
-    public static int generateSalary(UserAccount userAccount) {
-        return userAccount.getWorkerHours() * 15;
+    public static int generateSalary(int workerHours) {
+        return workerHours * 15;
     }
 }

@@ -5,30 +5,36 @@ import java.util.Scanner;
 public class SignUp {
 
     // Ask user to create new account by inputting all necessary properties
-    public static void createNewAccount(Scanner scanner, UserAccount userAccount){
+    public static void createNewAccount(Scanner scanner, UserAccount userAccount) {
         System.out.print("What is your name (Replace spaces with underscores): ");
         String name = scanner.next();
-        userAccount.setName(name);
 
         System.out.print("How old are you: ");
         int age = scanner.nextInt();
-        userAccount.setAge(age);
 
         System.out.print("What is your gender (M/F): ");
-        String gender = scanner.next();
-        userAccount.setGender(gender.charAt(0));
+        String tempGender = scanner.next();
+        tempGender.trim();
+        char gender = tempGender.charAt(0);
 
         System.out.print("Create username: ");
-        userAccount.setUserName(scanner.next());
+        String userName = scanner.next();
 
         System.out.print("Create password: ");
-        userAccount.setPassword(scanner.next());
+        String password = scanner.next();
 
         System.out.print("What are you weekly work hours: ");
-        userAccount.setWorkerHours(scanner.nextInt());
+        int workerHours = scanner.nextInt();
 
         System.out.print("\nYour Employee ID is : " + GenerateUserProperties.generateID());
-        System.out.print("\nYou are a " + GenerateUserProperties.generateWorkerType(userAccount) + " Employee");
-        System.out.print("\nYour salary is : $" + GenerateUserProperties.generateSalary(userAccount));
+        if (GenerateUserProperties.generateWorkerType(workerHours) == 'F') {
+            System.out.print("\nYou are a full-time employee");
+        } else {
+            System.out.print("\nYou are a part-time employee");
+        }
+        System.out.print("\nYour salary is : $" + GenerateUserProperties.generateSalary(workerHours));
+
+        // Create new object with inputed values
+        userAccount.setNewAccount(name, userName, age, password, gender, workerHours);
     }
 }

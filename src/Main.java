@@ -8,12 +8,16 @@ public class Main {
         Scanner scanner  = new Scanner(System.in);
 
         // Create objects
-        UserAccount jimmyAccount = new UserAccount();
+        UserAccount userAccount = new UserAccount();
 
         // Setup default user - Jimmy
-        jimmyAccount.setDefaultAccount();
+        userAccount.setNewAccount();
 
-        Menu.displayMenu(scanner, jimmyAccount);
+        Menu.displayMenu(scanner, userAccount);
 
+        System.out.println("\n" + userAccount.getName() + " " + userAccount.getUserName() + " " + userAccount.getAge()
+                + " " + userAccount.getPassword() + " " + userAccount.getGender() + " " +
+                userAccount.getWorkerHours() + " " + userAccount.getId() + " " + userAccount.getWorkerType() + " " +
+                userAccount.getSalary());
     }
 }

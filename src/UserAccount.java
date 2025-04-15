@@ -89,9 +89,8 @@ public class UserAccount {
         return salary;
     }
 
-
     // Setup default user account
-    public void setDefaultAccount(){
+    public void setNewAccount() {
         setName("Jim Beatly");
         setUserName("jimmybeatly99");
         setAge(26);
@@ -102,5 +101,18 @@ public class UserAccount {
         setId(12345);
         setWorkerType('F');
         setSalary(15);
+    }
+
+    public void setNewAccount(String name, String userName, int age, String password, char gender, int workerHours){
+        setName(name);
+        setUserName(userName);
+        setAge(age);
+        setPassword(password);
+        setGender(gender);
+        setWorkerHours(workerHours);
+
+        setId(GenerateUserProperties.generateID());
+        setWorkerType(GenerateUserProperties.generateWorkerType(workerHours));
+        setSalary(GenerateUserProperties.generateSalary(workerHours));
     }
 }

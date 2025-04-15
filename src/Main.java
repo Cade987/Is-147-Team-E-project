@@ -1,3 +1,11 @@
+/**
+ * This is main class to test Person.Java
+ *
+ * @author Leeroy Mbugua
+ * @version 1.0
+ * @see Person
+ */
+
 package src;
 
 import java.util.Scanner;

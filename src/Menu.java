@@ -4,30 +4,42 @@ import java.util.Scanner;
 
 public class Menu {
 
-    // Displays different menu screens depending on if the user is signed in
-    public static void displayMenu(Scanner scanner, UserAccount userAccount){
-        // If the user is not logged in, make them log or sign up
-        if (true /* Replace with an isLoggedIn variable */) {
-            System.out.println("Welcome to the new POS (Point of Sale) System!");
+    // Displays the main menu and handles login/signup logic
+    public static void displayMenu(Scanner scanner, UserAccount userAccount) {
+        boolean isLoggedIn = false;
 
+        System.out.println("Welcome to the new POS (Point of Sale) System!");
+
+        while (!isLoggedIn) {
             System.out.println("\n1. Log in");
             System.out.println("2. Sign up");
-        }
+            System.out.print("Choose an option: ");
 
-        int choice = scanner.nextInt();
+            // Make sure the user enters a valid integer
+            if (!scanner.hasNextInt()) {
+                System.out.println("Please enter a valid number.");
+                scanner.nextLine(); // Clear invalid input
+                continue;
+            }
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
             switch (choice) {
                 case 1: // Log in
-                    // Log user in
-                    LogIn.isLoginCorrect(scanner, userAccount);
+                    isLoggedIn = LogIn.isLoginCorrect(scanner, userAccount);
                     break;
 
                 case 2: // Sign up
-                    // Placeholder
                     SignUp.createNewAccount(scanner, userAccount);
+                    System.out.println("Account created. Please log in.");
                     break;
 
                 default:
-                    System.out.println("Invalid option.");
+                    System.out.println("Invalid option. Please choose 1 or 2.");
             }
+        }
+
+        System.out.println("Login successful. Proceeding to system...");
     }
 }

@@ -15,6 +15,11 @@ public class UserAccount {
     private char workerType;
     private int salary;
 
+    // Constructor (optional default)
+    public UserAccount() {
+        // Default constructor can be used if needed
+    }
+
     // Setters
     public void setName(String name) {
         this.name = name;
@@ -89,21 +94,16 @@ public class UserAccount {
         return salary;
     }
 
-    // Setup default user account
+    // Setup default user account (Jimmy)
     public void setNewAccount() {
-        setName("Jim Beatly");
-        setUserName("jimmybeatly99");
-        setAge(26);
-        setPassword("jiMbE4*n");
-        setGender('M');
-        setWorkerHours(40);
-
+        setNewAccount("Jim Beatly", "jimmybeatly99", 26, "jiMbE4*n", 'M', 40);
         setId(12345);
         setWorkerType('F');
         setSalary(15);
     }
 
-    public void setNewAccount(String name, String userName, int age, String password, char gender, int workerHours){
+    // Setup new user-defined account
+    public void setNewAccount(String name, String userName, int age, String password, char gender, int workerHours) {
         setName(name);
         setUserName(userName);
         setAge(age);

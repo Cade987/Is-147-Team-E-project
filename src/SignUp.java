@@ -8,7 +8,7 @@ public class SignUp {
     public static void createNewAccount(Scanner scanner, UserAccount userAccount) {
         System.out.print("What is your name: ");
         String name = scanner.nextLine().trim();
-
+//remove Age
         System.out.print("How old are you: ");
         int age = readInt(scanner);
 

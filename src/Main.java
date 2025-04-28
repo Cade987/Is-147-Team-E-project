@@ -11,27 +11,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        try (Scanner scanner = new Scanner(System.in)) {
-            // Create user account and set default user - Jimmy
-            UserAccount userAccount = new UserAccount();
-            userAccount.setNewAccount();
-
-            // Display menu
-            Menu.displayMenu(scanner, userAccount);
-
-            // Display user info
-            System.out.printf(
-                    "\n%s %s %d %s %s %.2f %d %s %.2f\n",
-                    userAccount.getName(),
-                    userAccount.getUserName(),
-                    userAccount.getAge(),
-                    userAccount.getPassword(),
-                    userAccount.getGender(),
-                    userAccount.getWorkerHours(),
-                    userAccount.getId(),
-                    userAccount.getWorkerType(),
-                    userAccount.getSalary()
-            );
-        }
+        Scanner scanner = new Scanner(System.in);
+        UserAccount userAccount = new UserAccount(); // Creates an empty employee account
+        Menu.displayMenu(scanner, userAccount);      // Starts the program at the menu
+        scanner.close();                             // Close scanner at the end
     }
 }

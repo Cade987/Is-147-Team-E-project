@@ -5,7 +5,6 @@ public class UserAccount {
     // Inputted properties
     private String name;
     private String userName;
-    private int age;
     private String password;
     private char gender;
     private int workerHours;
@@ -27,10 +26,6 @@ public class UserAccount {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public void setPassword(String password) {
@@ -66,10 +61,6 @@ public class UserAccount {
         return userName;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -96,17 +87,16 @@ public class UserAccount {
 
     // Setup default user account (Jimmy)
     public void setNewAccount() {
-        setNewAccount("Jim Beatly", "jimmybeatly99", 26, "jiMbE4*n", 'M', 40);
+        setNewAccount("Jim Beatly", "jimmybeatly99", "jiMbE4*n", 'M', 40);
         setId(12345);
         setWorkerType('F');
         setSalary(15);
     }
 
     // Setup new user-defined account
-    public void setNewAccount(String name, String userName, int age, String password, char gender, int workerHours) {
+    public void setNewAccount(String name, String userName, String password, char gender, int workerHours) {
         setName(name);
         setUserName(userName);
-        setAge(age);
         setPassword(password);
         setGender(gender);
         setWorkerHours(workerHours);

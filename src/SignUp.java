@@ -8,9 +8,6 @@ public class SignUp {
     public static void createNewAccount(Scanner scanner, UserAccount userAccount) {
         System.out.print("What is your name: ");
         String name = scanner.nextLine().trim();
-//remove Age
-        System.out.print("How old are you: ");
-        int age = readInt(scanner);
 
         System.out.print("What is your gender (M/F): ");
         String tempGender = scanner.nextLine().trim();
@@ -36,7 +33,7 @@ public class SignUp {
         System.out.println("Calculated Salary : $" + salary);
 
         // Create new account using the provided details
-        userAccount.setNewAccount(name, userName, age, password, gender, workerHours);
+        userAccount.setNewAccount(name, userName, password, gender, workerHours);
     }
 
     // Utility to read integer input safely

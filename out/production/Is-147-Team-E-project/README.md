@@ -10,3 +10,8 @@ price without relying on memory or manual price lookups. This technology elimina
 the risk of customers haggling or misleading the cashier by enforcing consistent 
 pricing directly from the system. By automating the calculation of prices, taxes, and 
 discounts, a POS system ensures a more transparent and reliable pricing structure, benefiting both customers and store owners alike.
+
+Javadocs integration 
+Our project uses Javadocs. This allows others to understand our code better and understand functions within our code. 
+It is like a table of contents allowing outsiders to understand your code an the functions you used in it. 
+Javadocs is set up by using the settings pages section and creating an online page. 

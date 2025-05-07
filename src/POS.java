@@ -43,6 +43,14 @@ public class POS {
         }
     }
 
+    // Allows Employee to input an item not in the inventory
+    private static double inputNewProduct() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter product price: ");
+        return scanner.nextDouble();
+    }
+
     private static Product findProductByCode(String code) {
         for (Product p : inventory) {
             if (p.getCode().equals(code)) {
@@ -59,6 +67,21 @@ public class POS {
             System.out.println(p.getName() + ": $" + p.getPrice());
             total += p.getPrice();
         }
+
+        boolean running = true;
+        while (running) {
+            System.out.print("Add additional product to cart? (y/n) ");
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine().trim();
+            if (input.equalsIgnoreCase("y")) {
+                total += inputNewProduct();
+            } else if (input.equalsIgnoreCase("n")) {
+                running = false;
+            } else {
+                System.out.println("Invalid input.");
+            }
+        }
+
         System.out.printf("Total: $%.2f\n", total);
         System.out.println("Transaction complete. Thank you!");
     }

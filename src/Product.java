@@ -23,6 +23,8 @@ public class Product {
         return price;
     }
 
+    public void setName(String price) {this.name = name;}
+
     public void setPrice(double price) {
         this.price = price;
     }

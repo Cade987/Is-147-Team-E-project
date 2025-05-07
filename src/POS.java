@@ -10,7 +10,8 @@ public class POS {
             new Product("002", "Bread", 2.29),
             new Product("003", "Eggs", 4.99),
             new Product("004", "Bananas", 1.19),
-            new Product("005", "Chicken Breast", 8.99)
+            new Product("005", "Chicken Breast", 8.99),
+            new Product("006", "Bacon", 2.49)
     };
 
     public static void startPOS(Scanner scanner) {

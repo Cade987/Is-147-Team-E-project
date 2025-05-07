@@ -5,8 +5,8 @@ import java.util.Random;
 public class GenerateUserProperties {
 
     private static final Random RANDOM = new Random();
-    private static final int MIN_ID = 1000;
-    private static final int MAX_ID = 9999;
+    private static final int MIN_ID = 10000;
+    private static final int MAX_ID = 99999;
     private static final int HOURLY_WAGE = 15;
 
     public static int generateID() {

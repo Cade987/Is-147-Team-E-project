@@ -13,6 +13,7 @@ public class ManagerMenu {
             System.out.println("2. Update Employee Salary");
             System.out.println("3. Remove Employee");
             System.out.println("4. Log Out");
+            System.out.println("5. Change Product Prices");
             System.out.print("Choose an option: ");
 
             if (!scanner.hasNextInt()) {
@@ -38,8 +39,11 @@ public class ManagerMenu {
                     System.out.println("Logging out...");
                     running = false;
                     break;
+                case 5:
+                    changeProductPrices(scanner);
+                    break;
                 default:
-                    System.out.println("Invalid option. Please choose between 1-4.");
+                    System.out.println("Invalid option. Please choose between 1-5.");
             }
         }
     }
@@ -60,8 +64,6 @@ public class ManagerMenu {
         System.out.print("\nEnter new weekly work hours for employee: ");
         int newHours = readInt(scanner);
         userAccount.setWorkerHours(newHours);
-
-        // Update worker type and salary based on new hours
         userAccount.setWorkerType(GenerateUserProperties.generateWorkerType(newHours));
         userAccount.setSalary(GenerateUserProperties.generateSalary(newHours));
 
@@ -81,14 +83,39 @@ public class ManagerMenu {
         System.out.println("Employee account removed (reset).");
     }
 
-    // Helper to safely read integers
+    private static void changeProductPrices(Scanner scanner) {
+        Product[] inventory = POS.getInventory();
+        System.out.println("\nProduct List:");
+        for (int i = 0; i < inventory.length; i++) {
+            Product p = inventory[i];
+            System.out.printf("%d. %s (%s): $%.2f\n", i + 1, p.getName(), p.getCode(), p.getPrice());
+        }
+
+        System.out.print("Enter product number to change price: ");
+        int index = readInt(scanner) - 1;
+
+        if (index >= 0 && index < inventory.length) {
+            System.out.print("Enter new price for " + inventory[index].getName() + ": $");
+            while (!scanner.hasNextDouble()) {
+                System.out.print("Invalid input. Enter a valid price: ");
+                scanner.nextLine();
+            }
+            double newPrice = scanner.nextDouble();
+            scanner.nextLine(); // clear newline
+            inventory[index].setPrice(newPrice);
+            System.out.println("Price updated successfully.");
+        } else {
+            System.out.println("Invalid selection.");
+        }
+    }
+
     private static int readInt(Scanner scanner) {
         while (!scanner.hasNextInt()) {
             System.out.print("Invalid input. Please enter a number: ");
             scanner.nextLine();
         }
         int value = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); // clear newline
         return value;
     }
 }

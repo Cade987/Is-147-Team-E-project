@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         UserAccount userAccount = new UserAccount(); // Creates an empty employee account
+        userAccount.setNewAccount();                 // Sets up default account: Jim Beatley
         Menu.displayMenu(scanner, userAccount);      // Starts the program at the menu
         scanner.close();                             // Close scanner at the end
     }

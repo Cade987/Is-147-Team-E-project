@@ -7,16 +7,18 @@ public class Menu {
     public static void displayMenu(Scanner scanner, UserAccount userAccount) {
         ManagerAccount managerAccount = new ManagerAccount(); // Create manager account object
 
-        while (true) {
+        boolean running = true;
+        while (running) {
             boolean isLoggedIn = false;
             boolean isManager = false;
 
             System.out.println("Welcome to the new POS (Point of Sale) System!");
 
-            while (!isLoggedIn && !isManager) {
+            while (!isLoggedIn && !isManager & running) {
                 System.out.println("\n1. Employee Log in");
                 System.out.println("2. Employee Sign up");
                 System.out.println("3. Manager Log in");
+                System.out.println("4. Exit POS");
                 System.out.print("Choose an option: ");
 
                 if (!scanner.hasNextInt()) {
@@ -38,6 +40,10 @@ public class Menu {
                         break;
                     case 3:
                         isManager = ManagerLogIn.isManagerLoginCorrect(scanner, managerAccount);
+                        break;
+                    case 4:
+                        running = false;
+                        System.out.println("\nShutting off...");
                         break;
                     default:
                         System.out.println("Invalid option. Please choose 1, 2, or 3.");

@@ -1,26 +1,33 @@
 package src;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class LogIn {
 
-    // Validates the user's login credentials
-    public static boolean isLoginCorrect(Scanner scanner, UserAccount userAccount) {
-        System.out.print("Username: ");
-        String userName = scanner.nextLine().trim();
+    // Attempt to find and return the UserAccount with matching ID
+    public static UserAccount getLoggedInUser(Scanner scanner, List<UserAccount> userAccounts) {
+        System.out.print("Enter your 6-digit Employee ID: ");
+        int enteredId = readInt(scanner);
 
-        System.out.print("Password: ");
-        String userPassword = scanner.nextLine().trim();
-
-        boolean isValid = userName.equals(userAccount.getUserName()) &&
-                userPassword.equals(userAccount.getPassword());
-
-        if (isValid) {
-            System.out.println("Hello, " + userAccount.getName() + "! Logging in...");
-        } else {
-            System.out.println("Incorrect username or password.");
+        for (UserAccount user : userAccounts) {
+            if (user.getId() == enteredId) {
+                System.out.println("Hello, " + user.getName() + "! Logging in...");
+                return user;
+            }
         }
 
-        return isValid;
+        System.out.println("Invalid employee ID.");
+        return null;
+    }
+
+    private static int readInt(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            System.out.print("Invalid input. Please enter a valid 6-digit ID: ");
+            scanner.nextLine();
+        }
+        int id = scanner.nextInt();
+        scanner.nextLine(); // clear newline
+        return id;
     }
 }

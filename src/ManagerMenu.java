@@ -1,15 +1,16 @@
 package src;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class ManagerMenu {
 
-    public static void displayManagerMenu(Scanner scanner, UserAccount userAccount) {
+    public static void displayManagerMenu(Scanner scanner, List<UserAccount> userAccounts) {
         boolean running = true;
 
         while (running) {
             System.out.println("\nManager Menu:");
-            System.out.println("1. View Employee Details");
+            System.out.println("1. View All Employee Details");
             System.out.println("2. Update Employee Salary");
             System.out.println("3. Remove Employee");
             System.out.println("4. Log Out");
@@ -18,22 +19,22 @@ public class ManagerMenu {
 
             if (!scanner.hasNextInt()) {
                 System.out.println("Please enter a valid number.");
-                scanner.nextLine(); // Clear invalid input
+                scanner.nextLine();
                 continue;
             }
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
-                    viewEmployeeDetails(userAccount);
+                    viewAllEmployees(userAccounts);
                     break;
                 case 2:
-                    updateEmployeeSalary(scanner, userAccount);
+                    updateEmployeeSalary(scanner, userAccounts);
                     break;
                 case 3:
-                    removeEmployee(userAccount);
+                    removeEmployee(scanner, userAccounts);
                     break;
                 case 4:
                     System.out.println("Logging out...");
@@ -48,39 +49,55 @@ public class ManagerMenu {
         }
     }
 
-    private static void viewEmployeeDetails(UserAccount userAccount) {
-        System.out.println("\nEmployee Details:");
-        System.out.println("----------------------");
-        System.out.println("Name         : " + userAccount.getName());
-        System.out.println("Username     : " + userAccount.getUserName());
-        System.out.println("Gender       : " + userAccount.getGender());
-        System.out.println("Worker Hours : " + userAccount.getWorkerHours());
-        System.out.println("Worker Type  : " + (userAccount.getWorkerType() == 'F' ? "Full-time" : "Part-time"));
-        System.out.println("Salary       : $" + userAccount.getSalary());
-        System.out.println("Employee ID  : " + userAccount.getId());
+    private static void viewAllEmployees(List<UserAccount> accounts) {
+        if (accounts.isEmpty()) {
+            System.out.println("No employees found.");
+            return;
+        }
+
+        System.out.println("\nAll Employees:");
+        System.out.println("--------------");
+        for (UserAccount user : accounts) {
+            System.out.println("Name         : " + user.getName());
+            System.out.println("Employee ID  : " + user.getId());
+            System.out.println("Worker Hours : " + user.getWorkerHours());
+            System.out.println("Worker Type  : " + (user.getWorkerType() == 'F' ? "Full-time" : "Part-time"));
+            System.out.println("Salary       : $" + user.getSalary());
+            System.out.println("-----------------------------");
+        }
     }
 
-    private static void updateEmployeeSalary(Scanner scanner, UserAccount userAccount) {
-        System.out.print("\nEnter new weekly work hours for employee: ");
+    private static void updateEmployeeSalary(Scanner scanner, List<UserAccount> accounts) {
+        UserAccount user = findEmployeeById(scanner, accounts);
+        if (user == null) return;
+
+        System.out.print("Enter new weekly work hours: ");
         int newHours = readInt(scanner);
-        userAccount.setWorkerHours(newHours);
-        userAccount.setWorkerType(GenerateUserProperties.generateWorkerType(newHours));
-        userAccount.setSalary(GenerateUserProperties.generateSalary(newHours));
-
-        System.out.println("Employee work hours, worker type, and salary updated successfully.");
+        user.setWorkerHours(newHours);
+        user.setWorkerType(GenerateUserProperties.generateWorkerType(newHours));
+        user.setSalary(GenerateUserProperties.generateSalary(newHours));
+        System.out.println("Updated work hours and salary.");
     }
 
-    private static void removeEmployee(UserAccount userAccount) {
-        userAccount.setName(null);
-        userAccount.setUserName(null);
-        userAccount.setPassword(null);
-        userAccount.setGender('U');
-        userAccount.setWorkerHours(0);
-        userAccount.setId(0);
-        userAccount.setWorkerType('P');
-        userAccount.setSalary(0);
+    private static void removeEmployee(Scanner scanner, List<UserAccount> accounts) {
+        UserAccount user = findEmployeeById(scanner, accounts);
+        if (user == null) return;
 
-        System.out.println("Employee account removed (reset).");
+        accounts.remove(user);
+        System.out.println("Employee removed from system.");
+    }
+
+    private static UserAccount findEmployeeById(Scanner scanner, List<UserAccount> accounts) {
+        System.out.print("Enter Employee ID: ");
+        int id = readInt(scanner);
+
+        for (UserAccount user : accounts) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        System.out.println("Employee not found.");
+        return null;
     }
 
     private static void changeProductPrices(Scanner scanner) {
@@ -101,7 +118,7 @@ public class ManagerMenu {
                 scanner.nextLine();
             }
             double newPrice = scanner.nextDouble();
-            scanner.nextLine(); // clear newline
+            scanner.nextLine();
             inventory[index].setPrice(newPrice);
             System.out.println("Price updated successfully.");
         } else {

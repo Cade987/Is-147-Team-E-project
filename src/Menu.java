@@ -1,21 +1,24 @@
 package src;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
-    public static void displayMenu(Scanner scanner, UserAccount userAccount) {
-        ManagerAccount managerAccount = new ManagerAccount(); // Create manager account object
+    public static void displayMenu(Scanner scanner) {
+        ManagerAccount managerAccount = new ManagerAccount();
+        List<UserAccount> userAccounts = new ArrayList<>();
 
         boolean running = true;
         while (running) {
-            boolean isLoggedIn = false;
+            UserAccount loggedInEmployee = null;
             boolean isManager = false;
 
-            System.out.println("Welcome to the new POS (Point of Sale) System!");
+            System.out.println("Welcome to the POS (Point of Sale) System!");
 
-            while (!isLoggedIn && !isManager & running) {
-                System.out.println("\n1. Employee Log in");
+            while (loggedInEmployee == null && !isManager && running) {
+                System.out.println("\n1. Employee Log in (by ID)");
                 System.out.println("2. Employee Sign up");
                 System.out.println("3. Manager Log in");
                 System.out.println("4. Exit POS");
@@ -32,11 +35,10 @@ public class Menu {
 
                 switch (choice) {
                     case 1:
-                        isLoggedIn = LogIn.isLoginCorrect(scanner, userAccount);
+                        loggedInEmployee = LogIn.getLoggedInUser(scanner, userAccounts);
                         break;
                     case 2:
-                        SignUp.createNewAccount(scanner, userAccount);
-                        System.out.println("Account created. Please log in.");
+                        SignUp.createNewAccount(scanner, userAccounts);
                         break;
                     case 3:
                         isManager = ManagerLogIn.isManagerLoginCorrect(scanner, managerAccount);
@@ -46,16 +48,16 @@ public class Menu {
                         System.out.println("\nShutting off...");
                         break;
                     default:
-                        System.out.println("Invalid option. Please choose 1, 2, or 3.");
+                        System.out.println("Invalid option. Please choose between 1 and 4.");
                 }
             }
 
-            if (isLoggedIn) {
+            if (loggedInEmployee != null) {
                 System.out.println("Employee login successful. Proceeding to POS system...");
-                POS.startPOS(scanner);  // Launch the POS system after employee login
+                POS.startPOS(scanner); // Optionally pass loggedInEmployee if needed
             } else if (isManager) {
                 System.out.println("Manager login successful. Accessing admin tools...");
-                ManagerMenu.displayManagerMenu(scanner, userAccount);
+                ManagerMenu.displayManagerMenu(scanner, userAccounts);
             }
         }
     }

@@ -33,7 +33,7 @@ public class SignUp {
             scanner.nextLine();
         }
         int value = scanner.nextInt();
-        scanner.nextLine(); // Clear trailing newline
+        scanner.nextLine();
         return value;
     }
 }

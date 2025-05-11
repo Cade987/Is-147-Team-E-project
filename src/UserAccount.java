@@ -8,7 +8,6 @@ public class UserAccount extends Account {
     private int salary;
 
     public UserAccount() {
-        // Default constructor
     }
 
     public void setName(String name) {
@@ -48,7 +47,7 @@ public class UserAccount extends Account {
     }
 
     public void setNewAccount() {
-        setNewAccount("Jim Beatly", 40);
+        setNewAccount("Cade Wright", 40);
         setId(123456);  // Default static ID for demo
     }
 

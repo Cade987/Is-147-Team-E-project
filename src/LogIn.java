@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class LogIn {
 
-    // Attempt to find and return the UserAccount with matching ID
     public static UserAccount getLoggedInUser(Scanner scanner, List<UserAccount> userAccounts) {
         System.out.print("Enter your 6-digit Employee ID: ");
         int enteredId = readInt(scanner);
@@ -27,7 +26,7 @@ public class LogIn {
             scanner.nextLine();
         }
         int id = scanner.nextInt();
-        scanner.nextLine(); // clear newline
+        scanner.nextLine();
         return id;
     }
 }

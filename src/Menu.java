@@ -26,12 +26,12 @@ public class Menu {
 
                 if (!scanner.hasNextInt()) {
                     System.out.println("Please enter a valid number.");
-                    scanner.nextLine(); // Clear invalid input
+                    scanner.nextLine();
                     continue;
                 }
 
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
+                scanner.nextLine();
 
                 switch (choice) {
                     case 1:
@@ -54,7 +54,7 @@ public class Menu {
 
             if (loggedInEmployee != null) {
                 System.out.println("Employee login successful. Proceeding to POS system...");
-                POS.startPOS(scanner); // Optionally pass loggedInEmployee if needed
+                POS.startPOS(scanner);
             } else if (isManager) {
                 System.out.println("Manager login successful. Accessing admin tools...");
                 ManagerMenu.displayManagerMenu(scanner, userAccounts);

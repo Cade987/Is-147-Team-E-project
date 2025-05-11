@@ -132,7 +132,7 @@ public class ManagerMenu {
             scanner.nextLine();
         }
         int value = scanner.nextInt();
-        scanner.nextLine(); // clear newline
+        scanner.nextLine();
         return value;
     }
 }

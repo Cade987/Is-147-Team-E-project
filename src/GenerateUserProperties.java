@@ -21,7 +21,7 @@ public class GenerateUserProperties {
         return workerHours * HOURLY_WAGE;
     }
 
-    // Overloaded method with custom wage
+
     public static int generateSalary(int workerHours, int customHourlyWage) {
         return workerHours * customHourlyWage;
     }

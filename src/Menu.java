@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This is the menu class
+ */
+
 public class Menu {
 
     public static void displayMenu(Scanner scanner) {
@@ -45,7 +49,7 @@ public class Menu {
                         break;
                     case 4:
                         running = false;
-                        System.out.println("\nShutting off...");
+                        System.out.println("\nShutting off..."); // Shuts down program
                         break;
                     default:
                         System.out.println("Invalid option. Please choose between 1 and 4.");

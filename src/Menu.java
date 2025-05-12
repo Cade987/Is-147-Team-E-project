@@ -1,5 +1,5 @@
 /**
- * This is the menu class.
+ * This is the menu class
  * Lets user interact with a simple login or signup interface
  */
 

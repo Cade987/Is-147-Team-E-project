@@ -1,5 +1,5 @@
 /**
- * This is the Product class.
+ * This is the Product class
  * Stores the basic values shared by all products: Code, name, and price
  */
 

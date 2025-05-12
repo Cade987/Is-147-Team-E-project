@@ -1,5 +1,5 @@
 /**
- * This is the Manager Menu class.
+ * This is the Manager Menu class
  * Displays the menu with options only permitted for the system manager:
  * View all employees signed in to the system, update employee salaries, remove employees from the system,
  * and change product prices

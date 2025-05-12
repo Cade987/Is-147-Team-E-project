@@ -1,5 +1,9 @@
 package src;
 
+/**
+ * This is the Product class
+ * Stores the basic values shared by all products: Code, name, and price
+ */
 public class Product {
     private String code;
     private String name;

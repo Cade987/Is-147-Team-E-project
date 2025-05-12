@@ -1,5 +1,10 @@
 package src;
 
+/**
+ * This is the Manager Log In class
+ * Takes the inputted username and password and searches for a matching ID currently signed in to the system
+ */
+
 import java.util.Scanner;
 
 public class ManagerLogIn {

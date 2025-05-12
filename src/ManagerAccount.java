@@ -1,5 +1,10 @@
 package src;
 
+/**
+ * This is the Manager Account class
+ * Extends the Account interface and allows user to log in as the system manager
+ */
+
 public class ManagerAccount extends Account {
 
     private final String userName = "admin";

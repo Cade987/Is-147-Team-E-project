@@ -1,5 +1,11 @@
 package src;
 
+/**
+ * This is the Sign Up class
+ * Asks new user to input their name and work hours. An ID is generated for the account which is added to the list of
+ * accounts signed in to the system
+ */
+
 import java.util.List;
 import java.util.Scanner;
 

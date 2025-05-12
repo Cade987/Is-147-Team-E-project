@@ -1,5 +1,11 @@
 package src;
 
+/**
+ * This is the POS system
+ * Allows user to complete a transaction. There are items already in the inventory, but the user can manually input the
+ * price of an item not hardcoded into the inventory at the end of checkout.
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

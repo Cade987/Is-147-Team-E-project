@@ -1,5 +1,12 @@
 package src;
 
+/**
+ * This is the User Account class
+ * Extends the Account interface. Each user is a separate object with shared details, the most important of which
+ * is the user ID. Upon creation, user accounts are added to the list of signed-in users.
+ * Users access the POS system to complete transactions.
+ */
+
 public class UserAccount extends Account {
 
     private String name;

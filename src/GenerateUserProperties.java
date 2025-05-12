@@ -1,5 +1,10 @@
 package src;
 
+
+/**
+ * This is the Generate User Properties class
+ * Generates a random id and a user's wage and worker type upon sign up
+ */
 import java.util.Random;
 
 public class GenerateUserProperties {

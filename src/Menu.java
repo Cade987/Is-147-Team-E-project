@@ -1,13 +1,13 @@
+/**
+ * This is the menu class
+ * Lets user interact with a simple login or signup interface
+ */
+
 package src;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-/**
- * This is the menu class
- * Lets user interact with a simple login or signup interface
- */
 
 public class Menu {
 

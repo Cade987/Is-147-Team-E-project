@@ -1,9 +1,9 @@
-package src;
-
 /**
  * This is the Log In class
  * Takes the inputted ID and searches for a matching ID currently signed in to the system
  */
+
+package src;
 
 import java.util.List;
 import java.util.Scanner;

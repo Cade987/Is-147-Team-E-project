@@ -1,6 +1,6 @@
 /**
- * This is the Account interface
- * Used by the User & Manager accounts to create id values
+ * This is the Account interface.
+ * Used by the User and Manager accounts to create id values
  */
 
 package src;
